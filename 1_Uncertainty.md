@@ -24,6 +24,7 @@ Or, when the data population has heavy tails (i.e., it includes some rare large 
 ![image](/pic/bootstrap_algorithm2.png)
 
 ## Hypothesis Testing and False Discovery Rate Control
+PDR = # false positives/ # tests called significant
 ![image](/pic/bootstrap_algorithm3.png)
 
 [Why](https://www.statisticshowto.com/benjamini-hochberg-procedure/)
@@ -33,7 +34,8 @@ The Benjamini-Hochberg Procedure is a powerful tool that decreases the false dis
 ![image](/pic/BH_eg.png)
 The recipe in Algorithm 3 is now simple: find the largest p-value that is below this line and call it and all smaller p-values “significant.” These five points are shown in Figure 1.9; you expect that around q = 0.1 of them (0 to 1 of the values) are false positives.
 
-
+## Bayesian Inference
+Bayesian uncertainty, which characterizes probabilities over models and parameters by appealing to the idea of subjective beliefs rather than repeated trials.
 
 
 
