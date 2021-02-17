@@ -37,5 +37,11 @@ The recipe in Algorithm 3 is now simple: find the largest p-value that is below 
 ## Bayesian Inference
 Bayesian uncertainty, which characterizes probabilities over models and parameters by appealing to the idea of subjective beliefs rather than repeated trials.
 
+Comparison:
+- Model-free inference is possible only in such datarich settings—when you have many observations (large n) and a low-dimensional inference target (small p).
+- On the other hand, in hign dimensional setting, you don’t have the luxury of being nonparametric. Instead, to get workable results, you need to make assumptions about the model and give some reasonable prior guesses about the parameters of those models. Bayes is the language that facilitates this process.
+
+
+
 
 
