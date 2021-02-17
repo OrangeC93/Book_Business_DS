@@ -25,8 +25,15 @@ Or, when the data population has heavy tails (i.e., it includes some rare large 
 
 ## Hypothesis Testing and False Discovery Rate Control
 ![image](/pic/bootstrap_algorithm3.png)
-https://www.statisticshowto.com/benjamini-hochberg-procedure/
 
-The recipe in Algorithm 3 is now simple: find the largest p-value that is below this line and call it and all smaller p-values “significant.” These five points are shown in Figure 1.9; you expect that around q = 0.1 of them (0 to 1 of the values) are false positives.
+[Why](https://www.statisticshowto.com/benjamini-hochberg-procedure/)
+The Benjamini-Hochberg Procedure is a powerful tool that decreases the false discovery rate. Adjusting the rate helps to control for the fact that sometimes small p-values (less than 5%) happen by chance, which could lead you to incorrectly reject the true null hypotheses. In other words, the B-H Procedure helps you to avoid Type I errors (false positives).
+
 
 ![image](/pic/BH_eg.png)
+The recipe in Algorithm 3 is now simple: find the largest p-value that is below this line and call it and all smaller p-values “significant.” These five points are shown in Figure 1.9; you expect that around q = 0.1 of them (0 to 1 of the values) are false positives.
+
+
+
+
+
