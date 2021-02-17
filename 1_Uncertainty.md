@@ -17,6 +17,16 @@ Disadvantage: when it breaks
 - If the statistic you are targeting requires a lot of information about the entire population distribution
 
 ```
-For example, we tend to not trust bootstraps for high-dimensional parameters because the joint sampling distribution is a function of all the population cross-variable dependencies. Or, when the data population has heavy tails (i.e., it includes some rare large values), you will have trouble bootstrapping the mean because the extreme values have an outsized influence on your distributional estimate.
+For example, we tend to not trust bootstraps for high-dimensional parameters because the joint sampling distribution is a function of all the population cross-variable dependencies. 
+
+Or, when the data population has heavy tails (i.e., it includes some rare large values), you will have trouble bootstrapping the mean because the extreme values have an outsized influence on your distributional estimate.
 ```
 ![image](/pic/bootstrap_algorithm2.png)
+
+## Hypothesis Testing and False Discovery Rate Control
+![image](/pic/bootstrap_algorithm3.png)
+https://www.statisticshowto.com/benjamini-hochberg-procedure/
+
+The recipe in Algorithm 3 is now simple: find the largest p-value that is below this line and call it and all smaller p-values “significant.” These five points are shown in Figure 1.9; you expect that around q = 0.1 of them (0 to 1 of the values) are false positives.
+
+![image](/pic/BH_eg.png)
