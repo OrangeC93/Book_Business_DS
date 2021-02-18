@@ -33,4 +33,11 @@ Why example2 and example3 resutls are different
 
 - The model in Equation3 corrects this by including feat in the regression. This phenomenon, where variable effects can get confounded if you don’t control for them correctly, will play an important role in the later discussions of causal and structural inference.
 
- 
+## Logistic regression
+## Deviance and likelihood
+![image](/pic/summary.png)
+- Residual deviance D: fitted and actual
+- Null deviance D0: fitted and average actual
+- R squre: 1- D/D0, measures how much response variability you are able to model as a function of the regression inputs
+- Dispersion parameter, measures variability around the fitted conditional means, R has estimated the dispersion parameter by taking the variance of your fitted residuals. In logistic regression, there is no corresponding “error term,” so R just outputs Dispersion parameter for binomial family taken to be 1. If you don’t see this, then you might have forgotten to put “type=binomial.”
+- Residual degrees of freedom defined as the number of observations minus the number of parameters.
