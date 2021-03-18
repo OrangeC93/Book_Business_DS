@@ -64,3 +64,52 @@ Here is also an interesting relationship between HC standard errors and the boot
 
 
 These techniques are commonly used when estimating treatment effects in randomized controlled trials.
+
+## Space and Time
+Exmaple: airline passenger regression
+
+**log(yt) = α + βtt + βmt + εt**
+- Including time as a continuous variable t (i.e., date 1, 2, 3, . . . ) and with month mt denoting the calendar month at time t.
+![image](/pic/ts.png)
+
+- De-trending is easy. If your data include dates, then you should create indicator variables for, say, each year, month, and day. For example: if you are going to include an effect for may-1981, then you should also include broader effects for may and for 1981.
+- Another issue: autocorrelation
+
+
+**autocorrelation**
+Phenomenon: If we consider the residuals for the passenger regression, like when residuals are high in one month, they are often high the next month. The errors appear correlated in time, such that εt is related to εt–1. That relationship violates our basic independence assumption,
+
+Define autocorrelation function ACF that tracks lag-l correlations:
+- acf(l) = cor(εt, εt-1)
+- 
+
+![image](/pic/acf_airline.png)
+- There's significant dependence, the correlation between yt and yt-1 is around 0.8, which is pretty huge. 
+- Note that acf (0) = 1 because this is the correlation between yt and itself. The dashed lines are heuristics for “big” correlations.
+
+**random walk**
+- This is called a random walk model for yt : the expectation of what will happen is always what happened most recently.
+![image](/pic/random_work.png)
+- Random walks are one version of a general autoregressive (AR) model.
+
+**AR(1)**
+![image](/pic/AR1.png)
+- This is simply yt regressed onto lagged yt–1. 
+- The random walk corresponds to β1 = 1, and nonzero β0 is then referred to as drift. 
+
+To fit the AR(1) model, you need to create lagged versions of your response and then include them in the regressions. This usually requires removing the first observation from your training data.
+![image](/pic/ariline_AR1.png)
+
+**coefficient**
+The AR(1) model is simple but hugely powerful. If you have any suspicion of autocorrelation, it is a good move to include lagged response as a covariate. The coefficient on this lag gives you important information about the time-series properties:
+- if |β1| = 1, random walk
+![image](/pic/random_walk1.png)
+  - In a random walk, the series just wanders around, and the **autocorrelation stays high** for a long time (see Figures 2.18 and 2.19). More precisely, the series is nonstationary: it has no average level that it wants to be near but rather diverges off into space.
+  - This property is implied by the series being a random walk: the differences between yt and yt–1 are independent. If you have a random walk, you should perform this returns transformation to obtain something that is easier to model.
+  - However, when we switch from prices to returns, (yt – yt–1)/yt–1, we get data that looks more like white noise.
+
+
+- if |β1| > 1, series explodes
+- if |β1| < 1, values are mean reverting
+  - These series are called stationary because yt is always pulled back toward the mean. These are the most common, and most useful, type of AR series. The past matters in a stationary series, but with limited horizon and the autocorrelation drops off rapidly
+![image](/pic/values_revert.png)
