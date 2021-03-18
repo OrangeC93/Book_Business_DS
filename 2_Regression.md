@@ -41,3 +41,26 @@ Why example2 and example3 resutls are different
 - R squre: 1- D/D0, measures how much response variability you are able to model as a function of the regression inputs
 - Dispersion parameter, measures variability around the fitted conditional means, R has estimated the dispersion parameter by taking the variance of your fitted residuals. In logistic regression, there is no corresponding “error term,” so R just outputs Dispersion parameter for binomial family taken to be 1. If you don’t see this, then you might have forgotten to put “type=binomial.”
 - Residual degrees of freedom defined as the number of observations minus the number of parameters.
+
+
+## Regression uncertainty
+**Usual way**: standard error by the software, which is okay for many purpose as long as the model is close to representing the true data generating process, but it will be wrong if there're [heteroskedastic errors](https://www.zhihu.com/question/278182454)
+
+**Nonparametric method**(methods that account for the possibility that the stated model is not quite a perfect fit)  
+- Bootstrap, a strategy in which you resample the data (with replacement) and use the uncertainty across samples as an estimate of actual sampling variance. You can use a bootstrap to nonparametrically quantify the uncertainty associated with regression coefficients. 
+- For example, compared parametric and nonparametric uncertainty estimates for the coefficient on an indicator for broadband access when predicting online spending.
+
+**OLS - sandwich variance estimators**: error variance, ∑, “sandwiched” by the projection X(X′X)–1.
+![image](/pic/sandwich.png)
+
+**A more general model**:
+- You can use Equation 2.29 to quantify uncertainty in the common heteroskedastic scenario where each observation has a different error variance. That is, where ∑ = diag(σ2) = diag ([σ21, σ22, . . ., σ2n]) with a different diagonal entry for each observation. The **heteroskedastic consistent12 (HC) standard errors** are constructed by replacing ∑ in Equation 2.29 with an estimate that allows for such heteroskedasticity.
+- AER package can be used to obtain HC standard errors, we need to take the square root of the diagonal variance estimate, for example wind sqrt (0.8) = 91288 which is much larger than the standard error of 0.64 from R output, the reason for this heteroskedasticity is that much larger residuals occurring on low wind days. 
+![image](/pic/aer_hc.png)
+
+**HC and Bootstrap**
+Here is also an interesting relationship between HC standard errors and the bootstrap. It turns out that, for OLS, the parameter variance estimates you get from the nonparametric bootstrap are actually approximated by the HC procedure. 
+![image](/pic/hc_bootstrap_vanilla.png)
+
+
+These techniques are commonly used when estimating treatment effects in randomized controlled trials.
