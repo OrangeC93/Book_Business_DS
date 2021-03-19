@@ -71,11 +71,12 @@ Assuming that the nothing other than the SEM-turnoff changes between the treatme
 - This says that the treatment—turning off paid search ads—has **a small but not statistically** significant negative effect on log revenue (0.66 percentage point drop with a standard error of 0.55 points). 
 - Even if the result was statistically significant, it is **doubtful** that paid search would have a positive ROI once the cost of the marketing is accounted for.
 
-Controlling for DMA specific revenue levels in the regression mena equation:
+Controlling for DMA specific revenue levels in the regression mena equation: The estimates for γ and its standard errors are practically unchanged from our earlier regression analysis using clustered standard errors.
 ![image](/pic/did_regression_model_dma.png)
-The estimates for γ and its standard errors are practically unchanged from our earlier regression analysis using clustered standard errors.
 
-Aonther way: pairing between pre and post treatment observations
+
+
+Aonther way: pairing between pre and post treatment observations, the results are unchanged from our previous regression analyses.
 - Caculate the sample of pre-post differences for each DMA ri = yi1-yi0
 - Collect the average difference for the treated and control group
 
