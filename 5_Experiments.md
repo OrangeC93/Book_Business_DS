@@ -55,24 +55,24 @@ Example: Study the effect of search engine market from eBay
 - Do they get any benefit from also appearing in sponsored slots, How big the benefits, it's worth the cost?
 
 eBay stopped bidding on any AdWords (the marketplace through which Google SEM is sold) for 65 of the 210 “designated market areas” (DMA) in the United States for the eight weeks following May 22, 2012. (These DMAs are viewed as roughly independent markets around metropolitan centers ranging from Boston to Los Angeles.)
-![image](/img/did_revenue.png)
+![image](/pic/did_revenue.png)
 - The top line corresponds to those DMAs that are never treated (SEM is always on)
 - The bottom line is for those where SEM was turned off on May 22 (marked with the dashed vertical). 
 - This was not a fully randomized trial.Thus, if SEM works, the revenue difference between treatment and control groups should be larger after May 22.
 
 Here we focus on the differences in log revenue because we anticipate that the treatment and control groups are related on percentage scale. There does appear to be an increase in the log difference following May 22. Is it real (i.e., statistically significant), and what are the implications for the return on investment for SEM?
-![image](/img/log_revenue_did.png)
+![image](/pic/log_revenue_did.png)
 
 Assuming that the nothing other than the SEM-turnoff changes between the treatment groups after May 22. 
-![image](/img/did_regression_model.png)
+![image](/pic/did_regression_model.png)
 - t denotes before and after May 22
 - d denotes control and treatment group
-![image](/img/did_regression_r.png)
+![image](/pic/did_regression_r.png)
 - This says that the treatment—turning off paid search ads—has **a small but not statistically** significant negative effect on log revenue (0.66 percentage point drop with a standard error of 0.55 points). 
 - Even if the result was statistically significant, it is **doubtful** that paid search would have a positive ROI once the cost of the marketing is accounted for.
 
 Controlling for DMA specific revenue levels in the regression mena equation:
-![image](/img/did_regression_model_dma.png)
+![image](/pic/did_regression_model_dma.png)
 The estimates for γ and its standard errors are practically unchanged from our earlier regression analysis using clustered standard errors.
 
 Aonther way: pairing between pre and post treatment observations
