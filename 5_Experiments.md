@@ -74,8 +74,6 @@ Assuming that the nothing other than the SEM-turnoff changes between the treatme
 Controlling for DMA specific revenue levels in the regression mena equation: The estimates for γ and its standard errors are practically unchanged from our earlier regression analysis using clustered standard errors.
 ![image](/pic/did_regression_model_dma.png)
 
-
-
 Aonther way: pairing between pre and post treatment observations, the results are unchanged from our previous regression analyses.
 - Caculate the sample of pre-post differences for each DMA ri = yi1-yi0
 - Collect the average difference for the treated and control group
@@ -83,5 +81,37 @@ Aonther way: pairing between pre and post treatment observations, the results ar
 This routine is the source of the “difference in differences” name. Independence between DMAs implies independence for each ri.
 
 
+## Regression Discountinuity Estimators
+Definition: treatment allocation is determined by a threshold on some “forcing variable,” and subjects that are close to the threshold, on either side, are comparable for causal estimation purposes.
+- In a strict RD, the treatment is fully determined by the forcing variable so you just need to control for that variable. However, in a imperfect experimental design, you need to control for (i.e., include in the regression) any variable that is correlated with both treatment allocation and the response.
+- In a “fuzzy” RD designs, the threshold changes the probabilities for different treatments, but allocation is not deterministic, these are versions of the IV setup.
 
+Assumption: continuity assumption
+- If the threshold were to move slightly, subjects switching treatment groups will behave similarly to those near their new treatment group.
 
+Formular:
+- di is treatment group, yi(di) is the observed response
+- forcing variable ri, the location of ri relative to their treatment threshold determins the treatment status.
+![image](/pic/5_17.png)
+- For example, we will usually estimate separate linear regressions within some distance δ of the threshold:
+![image](/pic/5_20.png)
+- Conditional ATE:
+![image](/pic/5_21.png)
+
+Example
+- Forcing variable(rank score - reserve)
+- Treatment status: whether or not the ad is shown in the mainline instead of the sidebar
+- Response variable y is the version of ad revenue
+
+Method1: compare the mean revenue y on the either side of the r=0 threshhold
+- Pitfall: this difference in means analysis is implicitly assuming a model where the response is constant within the window on the either side of the threshold. It's unlikely, since the rank score increases with both advertiser bid and the expected click rate, which means higher ri leads to higher yi
+
+Method2: localized linear regression 
+![image](/pic/localized_regression.png)
+
+Local analysis window: calculate the RD treatment effect estimate for a range of windows.
+- After an initial high-variance region, where the window size is too small for you to estimate a reliable linear regression,
+- Moving to a wider window leads to lower uncertainty around the estimate, but this is at the expense of more restrictive linearity assumptions
+- In practice, this window-length selection is more art than science, and you should make sure that results are stable within a range of plausible values.
+
+#### Instrumental Variables
