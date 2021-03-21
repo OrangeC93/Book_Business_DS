@@ -81,7 +81,7 @@ Aonther way: pairing between pre and post treatment observations, the results ar
 This routine is the source of the “difference in differences” name. Independence between DMAs implies independence for each ri.
 
 
-## Regression Discountinuity Estimators
+#### Regression Discountinuity Estimators
 Definition: treatment allocation is determined by a threshold on some “forcing variable,” and subjects that are close to the threshold, on either side, are comparable for causal estimation purposes.
 - In a strict RD, the treatment is fully determined by the forcing variable so you just need to control for that variable. However, in a imperfect experimental design, you need to control for (i.e., include in the regression) any variable that is correlated with both treatment allocation and the response.
 - In a “fuzzy” RD designs, the threshold changes the probabilities for different treatments, but allocation is not deterministic, these are versions of the IV setup.
