@@ -120,4 +120,24 @@ IVs are the indirect randomizers, or upstream sources of randomization which ind
 ![image](/pic/diagram_iv_model.png)
 - e, unobserved factors or errors, say e, that have influence on both treatment and response
 - instrument z: it acts on y only through p and it's completely independent from the unobserved error e
-- 
+
+**Endogenous**: p variables is jointly determined with the response y as a function of unobserved factors or error. However, applying off-the-shelf regression or ML when learning g (p, x) will cause problems.
+![image](/pic/endogenous.png)
+- A classic example of this Endogeneity problem occurs in demand analysis: flights are booked and price are high since both of them are responding to the changes of the consumer demand. 
+![image](/pic/flight_demand.png)
+Whereas in **Exogenous errors** setting: cov(e, p) = 0.
+
+Difference betwwen inference and predictive inference
+- To the machine learner, in a setting where you want to predict a future that looks mostly like the past, [e|p] is not a bias. Any patterns that help you predict e given p can be used to refine future predictions.
+- But in a policy setting(inference) you are planning to change p(you are going to change prices or treat with a new drug). This means that, in the future, you will have broken the relationship between p and e. The pattern for [e|p] observed in past data will no longer exist, and any inference that confuses this term with g is rightly considered a bias.
+
+**Back to the OHIE case**: We can look at how the change in enrollment p changes with the lottery access z and infer the treatment effect of enrollment on PCP visitation.
+- y: visit PCP
+- z: selected for enrollment, z is randomized (assigned in a lottery) and it only affects PCP visits through its influence on Medicaid enrollment
+- p: whether the patient actually enrolls in Medicaid
+- Need to control for the household size since people from larger households were more likely to obtain eligibility (any household member selected in the lottery makes all members eligible)
+
+![image](/pic/OHIE_iv.png)
+- library AER
+- vcovHC for the  CI 
+
