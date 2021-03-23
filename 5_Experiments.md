@@ -115,3 +115,9 @@ Local analysis window: calculate the RD treatment effect estimate for a range of
 - In practice, this window-length selection is more art than science, and you should make sure that results are stable within a range of plausible values.
 
 #### Instrumental Variables
+IVs are the indirect randomizers, or upstream sources of randomization which indirectly randomized though experiments on variables that influence policy selection.
+
+![image](/pic/diagram_iv_model.png)
+- e, unobserved factors or errors, say e, that have influence on both treatment and response
+- instrument z: it acts on y only through p and it's completely independent from the unobserved error e
+- 
