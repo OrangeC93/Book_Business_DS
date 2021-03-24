@@ -48,6 +48,15 @@ Thus, the LTE lasso procedure finds no evidence for effect of abortion on murder
 - However we can use such explanations to help build intuition around your results even if you are actually making use of the regression techniques we advocate in this section
 
 ## Sample-Spliting and Orthogonal Machine Learning
+The LTE lasso and realted approaches can give the point estimates of the treatment effects, which don't come with the nice inferential properties. However, sample splitting is a good algorithm for inferenfence.
+
+To do inference via sample splitting
+- Firstly: fit a regression model to half of the data:
+![image](/pic/sample_splitting1.png)
+- Then figure out which columns of x have a nonzero coefficient, and fit an unpenalized (i.e., MLE) logistic regression on only those variables using the second half of the data.
+![image](/pic/sample_splitting2.png)
+![image](/pic/sample_splitting3.png)
+
 
 
 
