@@ -34,5 +34,21 @@ Example: easier access to abortion causes decreased crime.
 
 This example illustrates that whenever your analysis is premised on conditional ignorability, you are always susceptible to others introducing additional controls until the model is nearly saturated and you can’t measure anything. This is the weakness of using OLS—a low-dimensional method—as your regression tool.
 
+**LTE framework**
+![image](/pic/LTE_lasso_regression.png)
+
+**Back to the example**: AIC lasso selects d as highly predictable given x, then use the predicted d to figure out the effect on y.
+![image](/pic/ps1.png)
+![image](/pic/ps2.png)
+Thus, the LTE lasso procedure finds no evidence for effect of abortion on murder.
+
+**PROPENSITY MODELS ARE AN ADAPTATION OF THE LTE FRAMEWORK FOR BINARY TREATMENTS**.
+- In this setting, the second line of the LTE system in Equation 6.2 is replaced with a binomial distribution on the treatment equation
+- Matching is a pain to implement because the matching algorithms are computationally expensive for large n, and it is unstable because results are highly sensitive to how you choose the matching criterion
+- However we can use such explanations to help build intuition around your results even if you are actually making use of the regression techniques we advocate in this section
+
+## Sample-Spliting and Orthogonal Machine Learning
+
+
 
 
