@@ -1,4 +1,4 @@
-**Conditional Ignorability and Linear Treatment Effects**
+## Conditional Ignorability and Linear Treatment Effects
 
 Conditional ignorability (CI) implies that you observe all of the variables that influence both the treatment and the response. It can be expressed as (6.1)
 - Which means: all of the potential outcomes yi(d) are independent from di given the controls xi. That is, after conditioning on all of the information in x, the potential outcomes across all treatment levels are unrelated to the treatment status you have actually been assigned.
