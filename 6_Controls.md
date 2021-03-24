@@ -5,9 +5,10 @@ Conditional ignorability (CI) implies that you observe all of the variables that
 - We can control for the factors in x simply by including them in the regression models, but things get difficult when x has high dimension or if we don't know the form of its influence on d and y.
 
 OLS doing(don't understand): eg. sales, brand, price 
-OLS regression coefficients represent the partial effect for each input after its correlation with the other inputs has been removed. What OLS is doing: it is finding the coefficients on the part of each input that is independent from the other inputs.
+- OLS regression coefficients represent the partial effect for each input after its correlation with the other inputs has been removed. 
+- What OLS is doing: it is finding the coefficients on the part of each input that is independent from the other inputs.
 
-LTE (linear treatment effect) model:
+**LTE (linear treatment effect) model**:
 ![image](/pic/LTE_model.png)
 - d treatment status varaible, y response of interest, x is all the variables that can influence both d and y, potential confounders
 - The model can be extended in a number of ways, for example by having γ change with x in a heterogeneous treatment effect specification or replacing x′β and x′τ with flexible functions l(x) and m(x) in a “partially linear” treatment effects model.
