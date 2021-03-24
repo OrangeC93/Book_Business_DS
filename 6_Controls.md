@@ -38,8 +38,8 @@ This example illustrates that whenever your analysis is premised on conditional 
 ![image](/pic/LTE_lasso_regression.png)
 
 **Back to the example**: AIC lasso selects d as highly predictable given x, then use the predicted d to figure out the effect on y.
-![image](/pic/ps1.png)
-![image](/pic/ps2.png)
+![image](/pic/ps_1.png)
+![image](/pic/ps_2.png)
 Thus, the LTE lasso procedure finds no evidence for effect of abortion on murder.
 
 **PROPENSITY MODELS ARE AN ADAPTATION OF THE LTE FRAMEWORK FOR BINARY TREATMENTS**.
