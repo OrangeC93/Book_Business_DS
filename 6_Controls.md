@@ -11,9 +11,10 @@ OLS doing(don't understand): eg. sales, brand, price
 **LTE (linear treatment effect) model**:
 ![image](/pic/LTE_model.png)
 - d treatment status varaible, y response of interest, x is all the variables that can influence both d and y, potential confounders
+  - The first line: a reduced-form model where βj represents average change in y with xj but without any worry about causation.
+  - The second line stats that x contains all of the variables that influence both d and y, such that the conditional ignorability assumption holds and γ can be interpreted causally.
 - The model can be extended in a number of ways, for example by having γ change with x in a heterogeneous treatment effect specification or replacing x′β and x′τ with flexible functions l(x) and m(x) in a “partially linear” treatment effects model.
-- The first line: a reduced-form model where βj represents average change in y with xj but without any worry about causation.
-- The second line stats that x contains all of the variables that influence both d and y, such that the conditional ignorability assumption holds and γ can be interpreted causally.
+
 
 Problems start arising only when you have so many variables to control for that the assumption of n >> p no longer applies.
 
@@ -87,7 +88,9 @@ For randomized treatments—for example, in an AB trial—modeling HTEs is as ea
 ![image](/pic/HTE.png)
 
 OHIE example: page 184
-- The baseline treatment effect is now a 9% increase in PCP visit rates. But there are large sources of heterogeneity around this value. For example, people of Pacific Islander descent have 13% increase as their treatment effect, while for Asians the treatment effect is only a 5% increase.
+- The baseline treatment effect is now a 9% increase in PCP visit rates. 
+- But there are large sources of heterogeneity around this value. 
+  - For example, people of Pacific Islander descent have 13% increase as their treatment effect, while for Asians the treatment effect is only a 5% increase.
 
 
 
