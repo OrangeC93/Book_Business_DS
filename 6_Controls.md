@@ -94,5 +94,15 @@ OHIE example: page 184
 
 #### Price and Demand
 As an example, we will consider data on sales of beer between 1989 and 1994 at Dominick’s stores in the Chicagoland area.16 For each beer unique product code (UPC), we have weekly total unit sales (MOVE) and average prices across 63 different stores.
+- Single regression elasticity model: that sales drop by only 0.7% per every 1% increase.
+- The naive lasso regression17 for log sales onto log price and x(week, store, product indicator and natural hierarchy) yields an average elasticity around −2.
+- The orthogonal ML: an average elasticity of between −3.1 and −3.7, which is in the range of values we would expect for beer
+- HTE modeling: We don't have an experiment here, but we learned earlier that orthogonal ML yields treatment residuals, d~ , that are essentially random under the conditional ignorability assumption. The response residuals, y~ , have also had the effect of the controls removed. an average elasticity of between −8 and 0,
+![image](/pic/6_17.png)
+- Direct estimation of the HTEs using the basic regression model
+![image](/pic/6_18.png)
+
+
+
 
 
