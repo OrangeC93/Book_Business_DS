@@ -102,7 +102,21 @@ As an example, we will consider data on sales of beer between 1989 and 1994 at D
 - Direct estimation of the HTEs using the basic regression model
 ![image](/pic/6_18.png)
 
+## Synthetic Controls
+![image](/pic/synthetic_contorls.png)
+- Use t = 1,...T to build model, x: y-1t(0), y: y1t(0)
+- Predict: x: y-1(0) -> y1
+- Calcuate: y1t+s(1) - y1t+s(0)
 
+Example: the effect of ETA campaign to Basque country
+![image](/pic/synthetic_contorls_eg.png)
 
+How significant are these differences? 
+- For uncertainty quantification with synthetic controls, we can use **permutation testing** to create a sample from the null distribution.Under this method, you compare the estimated treatment effects to results obtained using the same methods on placebo units: regions where you know that no treatment has been applied. 
+- In this case, the placebo units are the 16 non-Basque regions of Spain. We can use synthc to replicate the synthetic control estimation across the series for these regions and then compare ŷjt(0) to the observed yjt(0). We do this using a parSapply from the parallel library, which allows multiple regions to be predicted simultaneously.
+
+Pitfall:The method relies upon there being stationary structural relationships between series—the model relating control to treated series cannot change before and after treatment.
+
+However, despite these limitations, synthetic controls provide a way to get decent estimates of causal treatment effects in cases where you don’t have confidence that you’ve observed the full set of actual controls. You can also combine synthetic and observed controls; the covariates xt just enter as extra covariates in the regression model of Algorithm 16. Researchers from Google25 created the causalInference package for R that implements synthetic control methods using Bayesian time-serires tools. 
 
 
