@@ -47,7 +47,7 @@ Thus, the LTE lasso procedure finds no evidence for effect of abortion on murder
 - Matching is a pain to implement because the matching algorithms are computationally expensive for large n, and it is unstable because results are highly sensitive to how you choose the matching criterion
 - However we can use such explanations to help build intuition around your results even if you are actually making use of the regression techniques we advocate in this section
 
-## Sample-Spliting and Orthogonal Machine Learning
+## Sample-Spliting
 The LTE lasso and realted approaches can give the point estimates of the treatment effects, which don't come with the nice inferential properties. However, sample splitting is a good algorithm for inferenfence.
 
 To do inference via sample splitting
@@ -57,7 +57,37 @@ To do inference via sample splitting
 ![image](/pic/sample_splitting2.png)
 ![image](/pic/sample_splitting3.png)
 
+Sample splitting is a great method for dealing with high-dimensional controls because the effects of these controls are nuisance functions. They are not the primary object of interest; you just want to remove them from estimates of the treatment effect in a conditional ignorability model.
 
+
+## Orthogonal Machine Learning
+The naive ML conflates two problems:
+- selecting controls and predicting the response conditional upon controls
+
+Instead, Orthogonal ML
+- Estimate nuisance functions that are orthogonal to y in the conditional scrore
+- Then estimation for y is robust to slwo learning on these nuisance function
+
+The Orthogonal ML8 framework of Chernozhukov et al. [2017a] provides a general recipe for use of sample splitting with high-dimensional controls.
+
+The nuisance functions are the expectations for treatment and response given controls,  [d|x] and  [y|x], and after estimating each of these on an auxiliary sample, you can use out-of-sample residuals as the basis for the treatment effect estimation. They also provide a clever cross-fitting algorithm that allows you to use all of your data in the final treatment effect estimation
+![image](/pic/orthogonal_ML_for_LTE.png)
+
+Example: Pricing
+- 1.Predict prices from the demand variables: p~x
+- 2.Predict sales from the demand variables: y~x
+- 3.final regression: (y-y preidict) ~ (p - p predict)
+- Estimated relationship is causal if x contains all demand info known to pricer
+- For inference you can data split: use one sample for 1, 2, another rfor step 3
+
+## HTE(Heterogeneous Treatment Effects)
+The influence of the treatment (i.e., a policy variable that you control) varies as a function of who or what is being treated, is referred to as heterogeneous treatment effects (HTEs).
+
+For randomized treatments—for example, in an AB trial—modeling HTEs is as easy as running a regression that **interacts the treatment variable with sources of heterogeneity**. For example, if d has been randomized across subjects, you can fit the basic interaction model
+![image](/pic/HTE.png)
+
+OHIE example: page 184
+- The baseline treatment effect is now a 9% increase in PCP visit rates. But there are large sources of heterogeneity around this value. For example, people of Pacific Islander descent have 13% increase as their treatment effect, while for Asians the treatment effect is only a 5% increase.
 
 
 
