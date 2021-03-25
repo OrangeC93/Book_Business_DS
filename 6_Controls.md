@@ -103,13 +103,13 @@ As an example, we will consider data on sales of beer between 1989 and 1994 at D
 ![image](/pic/6_18.png)
 
 ## Synthetic Controls
-![image](/pic/synthetic_contorls.png)
+![image](/pic/synthetic_controls.png)
 - Use t = 1,...T to build model, x: y-1t(0), y: y1t(0)
 - Predict: x: y-1(0) -> y1
 - Calcuate: y1t+s(1) - y1t+s(0)
 
 Example: the effect of ETA campaign to Basque country
-![image](/pic/synthetic_contorls_eg.png)
+![image](/pic/synthetic_controls_eg.png)
 
 How significant are these differences? 
 - For uncertainty quantification with synthetic controls, we can use **permutation testing** to create a sample from the null distribution.Under this method, you compare the estimated treatment effects to results obtained using the same methods on placebo units: regions where you know that no treatment has been applied. 
