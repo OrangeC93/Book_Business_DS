@@ -92,5 +92,7 @@ OHIE example: page 184
 - But there are large sources of heterogeneity around this value. 
   - For example, people of Pacific Islander descent have 13% increase as their treatment effect, while for Asians the treatment effect is only a 5% increase.
 
+#### Price and Demand
+As an example, we will consider data on sales of beer between 1989 and 1994 at Dominick’s stores in the Chicagoland area.16 For each beer unique product code (UPC), we have weekly total unit sales (MOVE) and average prices across 63 different stores.
 
 
