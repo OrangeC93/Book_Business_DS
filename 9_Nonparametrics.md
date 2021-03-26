@@ -29,3 +29,4 @@ One for determining the tree splits and a second that is used to re-estimate the
 
 ## Gaussian Processes
 - R: laGP
+- https://cloud.tencent.com/developer/article/1744364
