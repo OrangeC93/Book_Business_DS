@@ -119,4 +119,5 @@ Pitfall:The method relies upon there being stationary structural relationships b
 
 However, despite these limitations, synthetic controls provide a way to get decent estimates of causal treatment effects in cases where you don’t have confidence that you’ve observed the full set of actual controls. You can also combine synthetic and observed controls; the covariates xt just enter as extra covariates in the regression model of Algorithm 16. Researchers from Google25 created the causalInference package for R that implements synthetic control methods using Bayesian time-serires tools. 
 
+https://towardsdatascience.com/causal-inference-using-synthetic-control-the-ultimate-guide-a622ad5cf827
 
